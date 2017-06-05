@@ -7,3 +7,6 @@ C:\Users\man\Desktop\당점소\서버 개발\서버 개발\obj\Debug\서버_개�
 C:\Users\man\Desktop\당점소\서버 개발\서버 개발\obj\Debug\서버 개발.csproj.GenerateResource.Cache
 C:\Users\man\Desktop\당점소\서버 개발\서버 개발\obj\Debug\서버 개발.exe
 C:\Users\man\Desktop\당점소\서버 개발\서버 개발\obj\Debug\서버 개발.pdb
+C:\Users\John\Desktop\당점소\YLP_GIT\YLP\서버 개발\서버 개발\bin\Debug\서버 개발.exe.config
+C:\Users\John\Desktop\당점소\YLP_GIT\YLP\서버 개발\서버 개발\obj\Debug\서버 개발.exe
+C:\Users\John\Desktop\당점소\YLP_GIT\YLP\서버 개발\서버 개발\obj\Debug\서버 개발.pdb

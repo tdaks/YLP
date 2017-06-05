@@ -47,7 +47,7 @@ namespace 서버_개발
 
         public void StartCommunicateMobile()
         {
-            //ns = new NetworkServer(MyIP, )
+            ns = new NetworkServer(MyIP, Define.Port);
         }
     }
 }
