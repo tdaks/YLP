@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace 서버_개발
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
-        public Form1()
+        public Main()
         {
-            InitializeComponent();
+            InitializeComponent();            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DBM_Main dbmm = new DBM_Main();
+            dbmm.Show();
         }
     }
 }
