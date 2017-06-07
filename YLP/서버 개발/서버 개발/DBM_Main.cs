@@ -12,9 +12,10 @@ namespace 서버_개발
 {
     public partial class DBM_Main : Form
     {
-        public DBM_Main()
+        public DBM_Main(ref bool form_dbmm)
         {
             InitializeComponent();
+            form_dbmm = false;
         }
     }
 }
