@@ -2,6 +2,7 @@ package com.example.fyl;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -15,6 +16,7 @@ public class MainActivity extends Activity {
 
     LinearLayout ll_main,ll_list;
     Button area1,area2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         startActivity(new Intent(this, SplashActivity.class));
@@ -43,6 +45,7 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
-    }
 
+
+    }
 }
