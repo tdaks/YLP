@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cafeteria.cs" />
     <Compile Include="DBManager.cs" />
     <Compile Include="DBM_Main.cs">
       <SubType>Form</SubType>

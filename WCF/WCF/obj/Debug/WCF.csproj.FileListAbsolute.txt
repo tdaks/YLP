@@ -17,3 +17,5 @@ E:\GitHub\YLP\WCF\WCF\bin\Microsoft.ApplicationInsights.xml
 E:\GitHub\YLP\WCF\WCF\obj\Debug\WCF.csprojResolveAssemblyReference.cache
 E:\GitHub\YLP\WCF\WCF\obj\Debug\WCF.dll
 E:\GitHub\YLP\WCF\WCF\obj\Debug\WCF.pdb
+E:\GitHub\YLP\WCF\WCF\bin\MySql.Data.dll
+E:\GitHub\YLP\WCF\WCF\bin\MySql.Data.xml

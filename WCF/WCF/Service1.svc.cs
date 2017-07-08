@@ -35,30 +35,22 @@ namespace WCF
             return "Hello Man";
         }
 
-        public string GetCafeteria()
+        public Cafeteria GetCafeteria()
         {
             Cafeteria c = new Cafeteria();
             c.Name = "cafe";
             c.Menu = "밥^^국^^반찬";
             c.Address = "구로";
 
-            return Serializer.Serialize(c);
+            return c;
         }
 
         public List<Cafeteria> GetCafeterias()
         {
-            Cafeteria c1 = new Cafeteria();
-            c1.Name = "cafe";
-            c1.Menu = "밥^^국^^반찬";
-            c1.Address = "구로";
-            Cafeteria c2 = new Cafeteria();
-            c2.Name = "cafe2";
-            c2.Menu = "밥2^^국2^^반찬2";
-            c2.Address = "가산";
+            DBAccessor dba = new DBAccessor();
 
-            List<Cafeteria> cafes = new List<Cafeteria>();
-            cafes.Add(c1);
-            cafes.Add(c2);
+            List<Cafeteria> cafes;
+            cafes = dba.ViewAllCafeteria();
 
             return cafes;
         }

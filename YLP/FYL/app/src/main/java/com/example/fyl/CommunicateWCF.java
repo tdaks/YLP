@@ -40,8 +40,10 @@ public class CommunicateWCF {
         }
     }
 
+    //식당 하나의 정보 가져오는 것. 추 후  식당의 상세 정보 보기 에서 사용 예정
+    //아직은 KSOAP2 사용법 익히는 용도.
     public String GetCafeteria(){
-        SoapObject request = new SoapObject(iu.GetNamespace(), iu.GetMethodCafeterias());
+        SoapObject request = new SoapObject(iu.GetNamespace(), iu.GetMethodCafeteria());
         //request.addProperty("value", "5");
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
         envelope.setOutputSoapObject(request);
@@ -51,7 +53,7 @@ public class CommunicateWCF {
         try
         {
             ArrayList<Cafeteria> cafes = new ArrayList<Cafeteria>();
-            androidHttpTransport.call(iu.GetSoapActionCafeterias(), envelope);
+            androidHttpTransport.call(iu.GetSoapActionCafeteria(), envelope);
             String result;
             //result = envelope.getResponse().toString();
             //GetSoapActionCafeteria
@@ -85,7 +87,6 @@ public class CommunicateWCF {
             for(int i = 0; i < cafes.size(); ++i)
             {
                 result += cafes.get(i).name + " " + cafes.get(i).address + " " + cafes.get(i).menu + "  ";
-
             }
 
             return result;
@@ -93,6 +94,46 @@ public class CommunicateWCF {
         {
             e.printStackTrace();
             return e.getLocalizedMessage();
+        }
+    }
+
+    //가디, 구디 버튼 눌렀을 때에 식당들의 정보 가져오는 부분.
+    public ArrayList<Cafeteria> GetCafeterias(){
+        SoapObject request = new SoapObject(iu.GetNamespace(), iu.GetMethodCafeterias());
+
+        SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+        envelope.setOutputSoapObject(request);
+        envelope.dotNet = true;
+
+        HttpTransportSE androidHttpTransport = new HttpTransportSE(iu.GetURL());
+        try
+        {
+            ArrayList<Cafeteria> cafes = new ArrayList<Cafeteria>();
+            androidHttpTransport.call(iu.GetSoapActionCafeterias(), envelope);
+            String result = "";
+            SoapObject so = (SoapObject) envelope.getResponse();
+            for(int i = 0; i < so.getPropertyCount(); ++i)
+            {
+                Object obj = so.getProperty(i);
+                if(obj instanceof SoapObject)
+                {
+                    SoapObject cafeteriaSoapObject = (SoapObject) obj;
+
+                    String cafePK = cafeteriaSoapObject.getProperty("PK").toString();
+                    String cafeName = cafeteriaSoapObject.getProperty("Name").toString();
+                    String cafePhoneNumber = cafeteriaSoapObject.getProperty("PhoneNumber").toString();
+                    String cafeAddress = cafeteriaSoapObject.getProperty("Address").toString();
+                    String cafeMenu = cafeteriaSoapObject.getProperty("Menu").toString();
+                    Cafeteria cafe = new Cafeteria(cafePK, cafeName, cafePhoneNumber, cafeAddress, cafeMenu);
+                    cafes.add(cafe);
+                }
+            }
+
+            return cafes;
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+            return null;
         }
     }
 }

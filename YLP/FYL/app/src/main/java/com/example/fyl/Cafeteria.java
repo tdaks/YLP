@@ -7,10 +7,13 @@ import java.util.ArrayList;
  */
 
 public class Cafeteria {
+    String primaryKey;
     String name;
+    String phoneNumber;
     String address;
     String menu;
     ArrayList<String> menuCollection;
+
     public Cafeteria()    {  menuCollection = new ArrayList<String>();  }
     public Cafeteria(String name, String address, String menu)
     {
@@ -18,5 +21,13 @@ public class Cafeteria {
         this.menu = menu;
         this.address = address;
         menuCollection = new ArrayList<String>();
+    }
+    public Cafeteria(String pk, String name, String phoneNumber, String address, String menu)
+    {
+        this.primaryKey = pk;
+        this.name = name;
+        this.menu = menu;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
     }
 }

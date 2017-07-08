@@ -24,7 +24,7 @@ namespace WCF
         string HelloWorld();
 
         [OperationContract]
-        string GetCafeteria();
+        Cafeteria GetCafeteria();
 
         [OperationContract]
         List<Cafeteria> GetCafeterias();
@@ -56,15 +56,68 @@ namespace WCF
     [DataContract]
     public class Cafeteria
     {
+        string pk;
         string name;
+        string phoneNumber;
         string address;
         string menu;
 
         [DataMember]
-        public string Name { get; set; }
+        public string PK
+        {
+            get { return pk; }
+            set { pk = value; }
+        }
         [DataMember]
-        public string Menu { get; set; }
+        public string Name
+        { 
+            get { return name; }
+            set { name = value; }
+        }
         [DataMember]
-        public string Address { get; set; }
+        public string Menu
+        {
+            get { return menu; }
+            set { menu = value; }
+        }
+        [DataMember]
+        public string PhoneNumber
+        {
+            get { return phoneNumber; }
+            set { phoneNumber = value; }
+        }
+        [DataMember]
+        public string Address
+        {
+            get { return address; }
+            set { address = value; }
+        }
+        /// <summary>
+        /// ///////////////////////////////////////
+        /// </summary>
+        [DataMember]
+        public string MenuList
+        {
+            get { return address; }
+            set { address = value; }
+        }
+
+        public Cafeteria() { }
+        public Cafeteria(string pk, string name, string number, string address, string menu)
+        {
+            this.pk = pk;
+            this.name = name;
+            this.PhoneNumber = number;
+            this.address = address;
+            this.menu = menu;
+        }
+
+            public Cafeteria(string pk, string name, string number, string address)
+        {
+            this.pk = pk;
+            this.name = name;
+            this.PhoneNumber = number;
+            this.address = address;
+        }
     }
 }

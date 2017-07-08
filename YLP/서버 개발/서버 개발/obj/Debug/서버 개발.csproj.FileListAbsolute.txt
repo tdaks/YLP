@@ -30,3 +30,15 @@ C:\Users\man\Desktop\github\YLP\서버 개발\서버 개발\obj\Debug\서버_개
 C:\Users\man\Desktop\github\YLP\서버 개발\서버 개발\obj\Debug\서버_개발.Main.resources
 C:\Users\man\Desktop\github\YLP\서버 개발\서버 개발\obj\Debug\서버_개발.Properties.Resources.resources
 C:\Users\man\Desktop\github\YLP\서버 개발\서버 개발\obj\Debug\서버 개발.csproj.GenerateResource.Cache
+E:\GitHub\YLP\YLP\서버 개발\서버 개발\bin\Debug\서버 개발.exe.config
+E:\GitHub\YLP\YLP\서버 개발\서버 개발\obj\Debug\서버 개발.exe
+E:\GitHub\YLP\YLP\서버 개발\서버 개발\obj\Debug\서버 개발.pdb
+E:\GitHub\YLP\YLP\서버 개발\서버 개발\bin\Debug\서버 개발.exe
+E:\GitHub\YLP\YLP\서버 개발\서버 개발\bin\Debug\서버 개발.pdb
+E:\GitHub\YLP\YLP\서버 개발\서버 개발\bin\Debug\MySql.Data.dll
+E:\GitHub\YLP\YLP\서버 개발\서버 개발\bin\Debug\MySql.Data.xml
+E:\GitHub\YLP\YLP\서버 개발\서버 개발\obj\Debug\서버 개발.csprojResolveAssemblyReference.cache
+E:\GitHub\YLP\YLP\서버 개발\서버 개발\obj\Debug\서버_개발.DBM_Main.resources
+E:\GitHub\YLP\YLP\서버 개발\서버 개발\obj\Debug\서버_개발.Main.resources
+E:\GitHub\YLP\YLP\서버 개발\서버 개발\obj\Debug\서버_개발.Properties.Resources.resources
+E:\GitHub\YLP\YLP\서버 개발\서버 개발\obj\Debug\서버 개발.csproj.GenerateResource.Cache
