@@ -12,6 +12,8 @@ namespace WCF
     // 참고: 이 서비스를 테스트하기 위해 WCF 테스트 클라이언트를 시작하려면 솔루션 탐색기에서Service1.svc나 Service1.svc.cs를 선택하고 디버깅을 시작하십시오.
     public class Service1 : IService1
     {
+        DBAccessor dba = new DBAccessor();
+
         public string GetData(int value)
         {
             return string.Format("You entered: {0}", value);
@@ -35,22 +37,18 @@ namespace WCF
             return "Hello Man";
         }
 
-        public Cafeteria GetCafeteria()
+        public Cafeteria GetCafeteria(string primaryKey)
         {
-            Cafeteria c = new Cafeteria();
-            c.Name = "cafe";
-            c.Menu = "밥^^국^^반찬";
-            c.Address = "구로";
+            Cafeteria cafeteria;
+            cafeteria = dba.GetCafeteria(primaryKey);
 
-            return c;
+            return cafeteria;
         }
 
         public List<Cafeteria> GetCafeterias()
         {
-            DBAccessor dba = new DBAccessor();
-
             List<Cafeteria> cafes;
-            cafes = dba.ViewAllCafeteria();
+            cafes = dba.GetAllCafeteria();
 
             return cafes;
         }

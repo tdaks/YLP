@@ -23,8 +23,8 @@ namespace 서버_개발
             try
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand(
-                    string.Format("INSERT INTO CAFETERIA VALUES('{0}', '{1}', '{2}', '{3}')", pk, name, number, address), conn);
+                string cmdtext = string.Format("INSERT INTO CAFETERIA VALUES('{0}', '{1}', '{2}', '{3}')", pk, name, number, address);
+                MySqlCommand cmd = new MySqlCommand(cmdtext, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
@@ -53,6 +53,26 @@ namespace 서버_개발
             }
 
             return cafeterias;
+        }
+        public Cafeteria GetCafeteria(string primaryKey)
+        {
+            DataSet ds = new DataSet();
+            string sql = string.Format("SELECT * FROM Menu WHERE ID={0}", primaryKey); // View Cafe 불러옴
+            MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
+            adpt.Fill(ds, "Menu");
+
+            List<string> menuList = new List<string>();
+            string pk = "";
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                pk = (string)row[0];
+                string menu = (string)row[1] + (string)row[2];
+
+                menuList.Add(menu);
+            }
+            Cafeteria cafe = new Cafeteria(pk, menuList);
+
+            return cafe;
         }
     }
 }

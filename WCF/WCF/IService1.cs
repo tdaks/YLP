@@ -24,7 +24,7 @@ namespace WCF
         string HelloWorld();
 
         [OperationContract]
-        Cafeteria GetCafeteria();
+        Cafeteria GetCafeteria(string primaryKey);
 
         [OperationContract]
         List<Cafeteria> GetCafeterias();
@@ -61,7 +61,7 @@ namespace WCF
         string phoneNumber;
         string address;
         string menu;
-
+        List<string> menuList;
         [DataMember]
         public string PK
         {
@@ -96,10 +96,10 @@ namespace WCF
         /// ///////////////////////////////////////
         /// </summary>
         [DataMember]
-        public string MenuList
+        public List<string> MenuList
         {
-            get { return address; }
-            set { address = value; }
+            get { return menuList; }
+            set { menuList = value; }
         }
 
         public Cafeteria() { }
@@ -112,12 +112,18 @@ namespace WCF
             this.menu = menu;
         }
 
-            public Cafeteria(string pk, string name, string number, string address)
+        public Cafeteria(string pk, string name, string number, string address)
         {
             this.pk = pk;
             this.name = name;
             this.PhoneNumber = number;
             this.address = address;
+        }
+
+        public Cafeteria(string pk, List<string> menuList)
+        {
+            this.pk = pk;
+            this.menuList = menuList;
         }
     }
 }

@@ -12,15 +12,15 @@ public class Cafeteria {
     String phoneNumber;
     String address;
     String menu;
-    ArrayList<String> menuCollection;
+    ArrayList<String> menuList;
 
-    public Cafeteria()    {  menuCollection = new ArrayList<String>();  }
+    public Cafeteria()    {  menuList = new ArrayList<String>();  }
     public Cafeteria(String name, String address, String menu)
     {
         this.name = name;
         this.menu = menu;
         this.address = address;
-        menuCollection = new ArrayList<String>();
+        menuList = new ArrayList<String>();
     }
     public Cafeteria(String pk, String name, String phoneNumber, String address, String menu)
     {
@@ -29,6 +29,11 @@ public class Cafeteria {
         this.menu = menu;
         this.address = address;
         this.phoneNumber = phoneNumber;
+    }
+    public Cafeteria(String pk, ArrayList<String> menuList)
+    {
+        this.primaryKey = pk;
+        this.menuList = menuList;
     }
 
     public String GetName()
@@ -50,5 +55,9 @@ public class Cafeteria {
     public String GetMenu()
     {
         return menu;
+    }
+    public ArrayList<String> GetMenuList()
+    {
+        return menuList;
     }
 }

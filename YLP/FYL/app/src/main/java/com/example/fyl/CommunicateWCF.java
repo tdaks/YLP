@@ -42,19 +42,19 @@ public class CommunicateWCF {
 
     //식당 하나의 정보 가져오는 것. 추 후  식당의 상세 정보 보기 에서 사용 예정
     //아직은 KSOAP2 사용법 익히는 용도.
-    public String GetCafeteria(){
+    public Cafeteria GetCafeteria(String primaryKey){
         SoapObject request = new SoapObject(iu.GetNamespace(), iu.GetMethodCafeteria());
-        //request.addProperty("value", "5");
+        request.addProperty("primaryKey", primaryKey);
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
         envelope.setOutputSoapObject(request);
         envelope.dotNet = true;
 
         HttpTransportSE androidHttpTransport = new HttpTransportSE(iu.GetURL());
+        Cafeteria result = null;
         try
         {
-            ArrayList<Cafeteria> cafes = new ArrayList<Cafeteria>();
             androidHttpTransport.call(iu.GetSoapActionCafeteria(), envelope);
-            String result;
+
             //result = envelope.getResponse().toString();
             //GetSoapActionCafeteria
             //SoapObject so = (SoapObject) envelope.getResponse();
@@ -62,39 +62,30 @@ public class CommunicateWCF {
             //result += " Menu:"+so.getProperty("Menu").toString();
             //result += " Address:"+so.getProperty("Address").toString();
             SoapObject so = (SoapObject) envelope.getResponse();
-            result = so.getProperty(0).toString(); // 2개 중 1개 뜸
+            //result = so.getProperty(0).toString(); // 2개 중 1개 뜸
+            ArrayList<String> menuList = new ArrayList<String>();
+            String pk = so.getProperty("PK").toString();
             for(int i = 0; i < so.getPropertyCount(); ++i)
             {
                 Object obj = so.getProperty(i);
+
                 if(obj instanceof SoapObject)
                 {
                     SoapObject cafeteriaSoapObject = (SoapObject) obj;
 
-                    String cafeName = cafeteriaSoapObject.getProperty("Name").toString();
-                    String cafeAddress = cafeteriaSoapObject.getProperty("Address").toString();
-                    String cafeMenu = cafeteriaSoapObject.getProperty("Menu").toString();
-                    Cafeteria cafe = new Cafeteria(cafeName, cafeMenu, cafeAddress);
-                    cafes.add(cafe);
+                    for(int j = 0; j < cafeteriaSoapObject.getPropertyCount(); ++j)
+                    {
+                        String menu = cafeteriaSoapObject.getProperty(j).toString();
+                        menuList.add(menu);
+                    }
                 }
-                /*
-                참조변수가 참조하고 있는 인스턴스의 실제 타입을 알아보기 위해 instanceof 연산자를 사용합니다.
-                주로 조건문에 사용되며, instanceof의 왼쪽에는 참조변수를 오른쪽에는 타입(클래스명)이 피연산자로 위치합니다.
-                그리고 연산의 결과로 boolean값인 true, false 중의 하나를 반환 합니다.
-                instanceof를 이용한 연산결과로 true를 얻었다는 것은 참조변수가 검사한 타입으로 형변환이 가능하다는 것을 뜻합니다.
-                */
             }
-            result = "";
-            for(int i = 0; i < cafes.size(); ++i)
-            {
-                result += cafes.get(i).name + " " + cafes.get(i).address + " " + cafes.get(i).menu + "  ";
-            }
-
-            return result;
+            result = new Cafeteria(pk, menuList);
         } catch (Exception e)
         {
             e.printStackTrace();
-            return e.getLocalizedMessage();
         }
+        return result;
     }
 
     //가디, 구디 버튼 눌렀을 때에 식당들의 정보 가져오는 부분.

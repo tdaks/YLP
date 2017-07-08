@@ -33,7 +33,11 @@ namespace 서버_개발
             get;
             set;
         }
-
+        public List<String> MenuList
+        {
+            get;
+            set;
+        }
         public Cafeteria(string pk, string name, string number, string address)
         {
             PK = pk;
@@ -49,6 +53,10 @@ namespace 서버_개발
             Address = address;
             TodayMenu = todayMenu;
         }
-
+        public Cafeteria(string pk, List<string> menuList)
+        {
+            PK = pk;
+            MenuList = menuList;
+        }
     }
 }

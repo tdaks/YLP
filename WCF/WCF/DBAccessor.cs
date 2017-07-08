@@ -17,13 +17,13 @@ namespace WCF
             conn = new MySqlConnection(strConn);
         }
 
-        public List<Cafeteria> ViewAllCafeteria()
+        public List<Cafeteria> GetAllCafeteria()
         {
             List<Cafeteria> cafeterias = new List<Cafeteria>();
 
             //MySqlDataAdapter 클래스를 이용하여 비연결 모드로 데이터 가져오기
             DataSet ds = new DataSet();
-            string sql = "SELECT * FROM Cafe"; // View Cafe 불러옴
+            string sql = "SELECT * FROM Cafeterias"; // View Cafeterias 불러옴
             MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
             adpt.Fill(ds, "Cafeteria");
 
@@ -35,6 +35,27 @@ namespace WCF
             }
 
             return cafeterias;
+        }
+
+        public Cafeteria GetCafeteria(string primaryKey)
+        {
+            DataSet ds = new DataSet();
+            string sql = string.Format("SELECT * FROM Menu WHERE ID='{0}'", primaryKey); // View Cafe 불러옴
+            MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
+            adpt.Fill(ds, "Menu");
+
+            List<string> menuList = new List<string>();
+            string pk = "";
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                pk = (string)row[0];
+                string menu = (string)row[1] + (string)row[2];
+
+                menuList.Add(menu);
+            }
+            Cafeteria cafe = new Cafeteria(pk, menuList);
+
+            return cafe;
         }
     }
 }

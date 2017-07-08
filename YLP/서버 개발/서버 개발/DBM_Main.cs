@@ -12,17 +12,18 @@ namespace 서버_개발
 {
     public partial class DBM_Main : Form
     {
+        DBManager dbm = new DBManager();
         public DBM_Main(ref bool form_dbmm)
         {
             InitializeComponent();
             form_dbmm = false;
             ViewAllCafeteria();
+
         }
 
         public void ViewAllCafeteria()
         {
             List<Cafeteria> cafes;
-            DBManager dbm = new DBManager();
             cafes = dbm.ViewAllCafeteria();
             
             foreach(Cafeteria cafe in cafes)
@@ -36,7 +37,6 @@ namespace 서버_개발
 
         private void btn_create_Click(object sender, EventArgs e)
         {
-            DBManager dbm = new DBManager();
             string pk = tb_pk.Text;
             string name = tb_name.Text;
             string num = tb_number.Text;
@@ -48,6 +48,11 @@ namespace 서버_개발
             }
 
             ViewAllCafeteria();
+        }
+
+        private void btn_cafeteriaAllMenu_Click(object sender, EventArgs e)
+        {
+            Cafeteria cafe =  dbm.GetCafeteria(tb_cafeteriaPK.Text);
         }
     }
 }
