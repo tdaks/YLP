@@ -30,4 +30,25 @@ public class Cafeteria {
         this.address = address;
         this.phoneNumber = phoneNumber;
     }
+
+    public String GetName()
+    {
+        return name;
+    }
+    public String GetPrimaryKey()
+    {
+        return primaryKey;
+    }
+    public String GetPhoneNumber()
+    {
+        return phoneNumber;
+    }
+    public String GetAddress()
+    {
+        return address;
+    }
+    public String GetMenu()
+    {
+        return menu;
+    }
 }

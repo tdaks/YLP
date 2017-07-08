@@ -110,7 +110,6 @@ public class CommunicateWCF {
         {
             ArrayList<Cafeteria> cafes = new ArrayList<Cafeteria>();
             androidHttpTransport.call(iu.GetSoapActionCafeterias(), envelope);
-            String result = "";
             SoapObject so = (SoapObject) envelope.getResponse();
             for(int i = 0; i < so.getPropertyCount(); ++i)
             {
@@ -128,7 +127,6 @@ public class CommunicateWCF {
                     cafes.add(cafe);
                 }
             }
-
             return cafes;
         } catch (Exception e)
         {
