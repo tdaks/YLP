@@ -60,9 +60,12 @@ public class listActivity extends Activity {
 
         ArrayList<ListActivityItem> ylpData=new ArrayList<>();
 
-        for (Cafeteria cafeteria:cafes) {
+        String strMenu = "";
 
-            ListActivityItem ylpItem = new ListActivityItem(cafeteria.GetName(), cafeteria.GetMenu(), R.drawable.ic_home_black_24dp);
+        for (Cafeteria cafeteria:cafes) {
+            String[] cafeteriaValue = cafeteria.GetMenu().split("\\^\\^");
+            strMenu = cafeteriaValue[0];
+            ListActivityItem ylpItem = new ListActivityItem(cafeteria.GetName(), "메뉴 : " + strMenu, R.drawable.ic_home_black_24dp);
             ylpData.add(ylpItem);
         }
 

@@ -8,31 +8,37 @@
     android:orientation="vertical"
     tools:context="com.example.fyl.MainActivity">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#444444"
-        android:layout_marginTop="10dp"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:text="이번주 추천식당"
-        android:textStyle="bold"
-        android:textSize="14dp"
-        android:textColor="#111111"/>
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#444444"/>
-
     <LinearLayout
-        android:id="@+id/ll_week"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#00ff00"
-        android:visibility="gone"></LinearLayout>
+        android:visibility="gone">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#444444"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:text="이번주 추천식당"
+            android:textStyle="bold"
+            android:textSize="14dp"
+            android:textColor="#111111"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#444444"/>
+
+
+        <LinearLayout
+            android:id="@+id/ll_week"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            android:background="#00ff00"></LinearLayout>
+    </LinearLayout>
 
     <ImageView
         android:layout_width="match_parent"

@@ -6,8 +6,8 @@ package com.example.fyl;
 
 public class InnerWCFUnit {
     private String namespace = "http://tempuri.org/";
-    private final String URL = "http://192.168.219.101:13269/wcf/Service1.svc"; // 내부망
-    //private final String URL = "http://182.228.83.39:13269/wcf/Service1.svc"; // 외부망
+//    private final String URL = "http://192.168.219.101:13269/wcf/Service1.svc"; // 내부망
+    private final String URL = "http://182.228.83.39:13269/wcf/Service1.svc"; // 외부망
 
     private String methodName = "HelloWorld";
     private String methodCafeteria = "GetCafeteria";
